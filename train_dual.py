@@ -200,11 +200,11 @@ def main(args):
     if "bert" in args.pretrain_tokenizer:
         model = TNCSE_BERT(pretrained_model_1=args.pretrain_model_path_1,
                            pretrained_model_2=args.pretrain_model_path_2,
-                           dropout=args.dropout).to(args.device)
+                           ).to(args.device)
     else:
         model = TNCSE_RoBERTa(pretrained_model_1=args.pretrain_model_path_1,
                            pretrained_model_2=args.pretrain_model_path_2,
-                           dropout=args.dropout).to(args.device)
+                           ).to(args.device)
     if args.do_train:
         assert args.train_mode in ['supervise', 'unsupervise'], \
             "train_mode should in ['supervise', 'unsupervise']"
@@ -238,7 +238,6 @@ if __name__ == '__main__':
     parser.add_argument("--device", type=str, default='gpu', choices=['gpu', 'cpu'], help="gpu or cpu")
     parser.add_argument("--output_path", type=str, default='TNCSE_BERT_OUTPUT')
     parser.add_argument("--lr", type=float, default=1e-6)
-    parser.add_argument("--dropout", type=float, default=0.00025)
     parser.add_argument("--epochs", type=int, default=1)
     parser.add_argument("--batch_size_train", type=int, default=64)
     parser.add_argument("--batch_size_eval", type=int, default=256)
@@ -264,7 +263,7 @@ if __name__ == '__main__':
     seed_everything(args.seed)
     args.device = torch.device("cuda:0" if torch.cuda.is_available() and args.device == 'gpu' else "cpu")
     args.output_path = join(args.output_path, args.train_mode, args.pretrain_tokenizer,
-                            'bsz-{}-lr-{}-dropout-{}'.format(args.batch_size_train, args.lr, args.dropout))
+                            'bsz-{}-lr-{}'.format(args.batch_size_train, args.lr))
     if not os.path.exists(args.output_path):
         os.makedirs(args.output_path)
 

@@ -1,6 +1,6 @@
 # Introduction
 
-This repository is belong to the conference paper titled "TNCSE: Tensor’s Norm Constraints for Unsupervised Contrastive Learning of Sentence Embeddings".
+This repository is belong to the conference paper titled "TNCSE: Tensor's Norm Constraints for Unsupervised Contrastive Learning of Sentence Embeddings".
 
 TNCSE is a BERT-like model for computing sentence embedding vectors, trained using unsupervised contrastive learning.
 
@@ -110,5 +110,5 @@ python train_dual.py
 
 ### Train TNCSE_RoBERTa
 ```bash
-python train_dual.py --output_path TNCSE_RoBERTa_OUTPUT --pretrain_model_path_1 TNCSE_RoBERTa_encoder1 --pretrain_model_path_2 TNCSE_RoBERTa_encoder2 --pretrain_tokenizer Roberta-base --batch_size_train 256 --dropout 0.0175 --lr 1e-06
+python train_dual.py --output_path TNCSE_RoBERTa_OUTPUT --pretrain_model_path_1 TNCSE_RoBERTa_encoder1 --pretrain_model_path_2 TNCSE_RoBERTa_encoder2 --pretrain_tokenizer Roberta-base --batch_size_train 256 --lr 1e-06
 ```

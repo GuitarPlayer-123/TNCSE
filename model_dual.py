@@ -20,7 +20,7 @@ class teacher_model(nn.Module):
 
 class TNCSE_BERT(nn.Module):
 
-    def __init__(self, pretrained_model_1, pretrained_model_2, dropout=0.3):
+    def __init__(self, pretrained_model_1, pretrained_model_2, dropout=0.00025):
         super(TNCSE_BERT, self).__init__()
 
         config_1 = AutoConfig.from_pretrained(pretrained_model_1)
@@ -45,7 +45,7 @@ class TNCSE_BERT(nn.Module):
 
 class TNCSE_RoBERTa(nn.Module):
 
-    def __init__(self, pretrained_model_1, pretrained_model_2, dropout=0.3):
+    def __init__(self, pretrained_model_1, pretrained_model_2, dropout=0.0175):
         super(TNCSE_RoBERTa, self).__init__()
 
         config_1 = AutoConfig.from_pretrained(pretrained_model_1)
